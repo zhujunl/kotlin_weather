@@ -34,4 +34,10 @@ object SunntyWeatherNetwork {
         })
         }
     }
+
+    private val weatherService=ServiceCreator.create(WeatherService::class.java)
+    suspend fun getDailyWeatther(lng:String,lat:String)= weatherService.getDailyWeather(lng,lat).await()
+    suspend fun getRealtimeWeather(lng: String,lat:String)= weatherService.getRealitimeWeather(lng,lat).await()
+
+
 }
